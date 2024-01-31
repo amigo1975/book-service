@@ -2,12 +2,12 @@ pipeline {
     agent any
     tools{
         maven 'maven_3_8_1'
-    }
+
     stages{
         stage('Build Maven'){
             steps{
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/amigo1975/book-service']])
-                sh 'mvn clean package'
+                sh 'mvnw clean package'
             }
         }
         stage('Build docker image'){

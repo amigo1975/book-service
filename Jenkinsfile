@@ -7,9 +7,7 @@ pipeline {
         stage('Build Maven'){
             steps{
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/amigo1975/book-service']])
-                dir("book-service"){
                 bat 'mvn clean package'
-                }
             }
         }
         stage('Build docker image'){

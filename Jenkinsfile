@@ -8,7 +8,7 @@ pipeline {
             steps{
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/amigo1975/book-service']])
                 dir("book-service"){
-                sh 'mvn clean install'
+                bat 'mvn clean package'
                 }
             }
         }

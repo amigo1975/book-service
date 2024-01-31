@@ -18,15 +18,18 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    // Get a Book given its Id
     public Book getBookById(int id) {
         return bookRepository.findById(id).orElse(null);
     }
 
+    //Save a Book (receive data in a Json format)
     public Book save(Book book) {
         Book bookNew = bookRepository.save(book);
         return bookNew;
     }
 
+    //List Books belonging to a given Student
     public List<Book> byStudentId(int studentId) {
         return bookRepository.findByStudentId(studentId);
     }

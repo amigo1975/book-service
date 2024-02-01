@@ -20,8 +20,8 @@ pipeline {
         stage('Push image to Docker Hub'){
             steps{
                 script{
-                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-pwd')]) {
-                        bat 'docker login -u mtisw -p ${dockerhub-pwd}'
+                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
+                        bat 'docker login -u mtisw -p ${dockerhubpwd}'
                    }
                    bat 'docker push mtisw/book_service:latest'
                 }

@@ -4,7 +4,7 @@ pipeline {
         maven 'maven_3_8_1'
     }
     stages{
-        stage('Build Maven'){
+        stage('Build maven'){
             steps{
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/amigo1975/book-service']])
                 bat 'mvn clean package'
@@ -13,17 +13,17 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t mtisw/book_service:latest .'
+                    bat 'docker build -t mtisw/book_service:latest .'
                 }
             }
         }
-        stage('Push image to Hub'){
+        stage('Push image to Docker Hub'){
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                        sh 'docker login -u mtisw -p ${dockerhubpwd}'
+                        bat 'docker login -u mtisw -p ${dockerhubpwd}'
                    }
-                   sh 'docker push mtisw/book_service:latest'
+                   bat 'docker push mtisw/book_service:latest'
                 }
             }
         }

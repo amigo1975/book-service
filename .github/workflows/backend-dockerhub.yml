@@ -1,8 +1,8 @@
-name: Backend CI - Docker Hub
+name: Backend CD - Docker Hub
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build-test-and-dockerize:
@@ -38,4 +38,3 @@ jobs:
           push: true
           tags: |
             mtisw/book_service:latest
-            mtisw/book_service:${{ github.sha }}

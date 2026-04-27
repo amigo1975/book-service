@@ -23,9 +23,6 @@ jobs:
       - name: Generar JAR sin tests
         run: mvn clean package -DskipTests
 
-      - name: Renombrar JAR
-        run: cp target/*.jar target/book_service.jar
-
       - name: Subir JAR como artifact
         uses: actions/upload-artifact@v4
         with:

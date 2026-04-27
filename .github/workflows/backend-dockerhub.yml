@@ -1,4 +1,4 @@
-name: Backend CD - Docker Hub
+name: Build - Test - Docker
 
 on:
   push:

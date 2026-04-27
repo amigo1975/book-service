@@ -46,7 +46,7 @@ class BookServiceTest {
         when(bookRepository.findById(1)).thenReturn(Optional.of(mockBook));
 
         Book book = bookService.getBookById(1);
-        assertEquals("Book 1", book.getTitle());
+        assertEquals("Book 3", book.getTitle());
         verify(bookRepository, times(1)).findById(1);
     }
 

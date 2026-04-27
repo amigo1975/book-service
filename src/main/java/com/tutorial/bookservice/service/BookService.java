@@ -18,7 +18,7 @@ public class BookService {
         return bookRepository.findAll();
     }
 
-    // Get a Book given its Id
+    // Get a Book given its Id (Dado su ID)
     public Book getBookById(int id) {
         return bookRepository.findById(id).orElse(null);
     }
